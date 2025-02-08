@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Style for buttons and container */
+      .btn {
+        padding: 10px 20px; /* Corrected padding syntax */
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        box-shadow: none; /* Removed shadow */
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+      .gif_container img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Positioning the buttons */
+      #yesButton {
+        margin-right: 20px; /* Adjust spacing */
+        background-color: rgb(255, 255, 255); /* Red background */
+        color: rgb(58, 1, 1); /* White text */
+      }
+      #noButton {
+        margin-left: 20px; /* Adjust spacing */
+        background-color: rgb(255, 255, 255);
+        color: rgb(71, 0, 0);
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text" style="color: rgb(255, 255, 255);">
+          Will you do me the honour to be my valentine? :)
+        </h1>
+      </div>
+      <div class="gif_container">
+        <img
+          src="https://i.postimg.cc/mrk9wrL0/spongebob-squarepants-begging.gif"
+          alt="Spongeob please"
+        />
+      </div>
+      <div class="buttons">
+        <button class="btn" id="yesButton" onclick="nextPage()">
+          OMG YESS
+        </button>
+        <button class="btn" id="noButton" onmouseover="moveButton()">
+          Hell nah bro
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function nextPage() {
+        window.location.href = "yes.html";
+      }
+
+      function moveButton() {
+        const noButton = document.getElementById("noButton");
+
+        // Set max boundaries for the button's movement
+        const maxMoveX = window.innerWidth * 0.6 - noButton.offsetWidth; // Reduced horizontal area
+        const maxMoveY = window.innerHeight * 0.6 - noButton.offsetHeight; // Reduced vertical area
+
+        const x = Math.random() * maxMoveX;
+        const y = Math.random() * maxMoveY;
+
+        noButton.style.position = 'absolute';
+        noButton.style.left = `${x}px`;
+        noButton.style.top = `${y}px`;
+      }
+    </script>
+  </body>
+</html>
