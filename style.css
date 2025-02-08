@@ -7,9 +7,10 @@
     --shadow-color: rgba(0, 0, 0, 0.2);
     --txt-color: #000000;
     --heart-color: #660505;
-  }
-  
-  body {
+}
+
+/* Global body styling */
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,32 +18,33 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .container {
+    font-family: 'Courier', sans-serif; /* Apply font globally */
+}
+
+.container {
     height: 100vh;
     display: grid;
     place-items: center;
-  }
-  
-  /* Envelope wrapper */
-  .envelope-wrapper {
+}
+
+/* Envelope wrapper */
+.envelope-wrapper {
     background: var(--bg-envelope-color);
     box-shadow: 0 0 40px var(--shadow-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    position: center
-    cursor pointer;
-  }
-  
-  .envelope {
+    position: center;
+    cursor: pointer;
+}
+
+.envelope {
     position: relative;
     width: 300px;
     height: 230px;
-  }
-  
-  .envelope::before {
+}
+
+.envelope::before {
     content: "";
     position: absolute;
     top: 0;
@@ -52,9 +54,9 @@
     border-left: 150px solid transparent;
     transform-origin: top;
     transition: all 0.5s ease-in-out 0.7s;
-  }
-  
-  .envelope::after {
+}
+
+.envelope::after {
     content: "";
     position: absolute;
     z-index: 2;
@@ -64,10 +66,10 @@
     border-right: 150px solid var(--envelope-cover);
     border-bottom: 100px solid var(--envelope-cover);
     border-left: 150px solid var(--envelope-cover);
-  }
-  
-  /* Letter inside the envelope */
-  .letter {
+}
+
+/* Letter inside the envelope */
+.letter {
     position: absolute;
     right: 20%;
     bottom: 0;
@@ -78,16 +80,17 @@
     transition: all 1s ease-in-out;
     box-shadow: 0 0 5px var(--shadow-color);
     padding: 20px 10px;
-  }
-  
-  .letter .text {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Text inside letter */
+.letter .text {
+    font-family: 'Harrington', sans-serif; /* Harrington */
     color: var(--txt-color);
     font-size: 15px;
-  }
-  
-  /* Heart button in the center of the envelope */
-  .heart {
+}
+
+/* Heart button */
+.heart {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -99,45 +102,45 @@
     transition: transform 0.5s ease-in-out 1s;
     box-shadow: 0 1px 6px var(--shadow-color);
     cursor: pointer;
-  }
-  
-  .heart:before,
-  .heart:after {
+}
+
+.heart:before,
+.heart:after {
     content: "";
     position: absolute;
     width: 15px;
     height: 15px;
     background-color: var(--heart-color);
     border-radius: 50%;
-  }
-  
-  .heart:before {
+}
+
+.heart:before {
     top: -7.5px;
-  }
-  
-  .heart:after {
+}
+
+.heart:after {
     right: 7.5px;
-  }
-  
-  /* When the envelope is clicked */
-  .flap > .envelope::before {
+}
+
+/* Flap animation */
+.flap > .envelope::before {
     transform: rotateX(180deg);
     z-index: 0;
-  }
-  
-  .flap > .envelope > .letter {
+}
+
+.flap > .envelope > .letter {
     bottom: 100px;
     transform: scale(1.5);
     transition-delay: 1s;
-  }
-  
-  .flap > .heart {
+}
+
+.flap > .heart {
     transform: rotate(90deg);
     transition-delay: 0.4s;
-  }
-  
-  /* Second page styles */
-  #proposalPage {
+}
+
+/* Second page styles */
+#proposalPage {
     display: none;
     background-color: var(--bg-color);
     width: 100vw;
@@ -146,34 +149,22 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  .header_text {
-    font-family: "Nunito", sans-serif;
-    font-size: 50px;
-    font-weight: bold;
+}
+
+/* Text on second page */
+.header_text {
+    font-family: 'Harrington', sans-serif; /* Harrington */
+    font-size: 30px;
     color: #ffffff;
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  .text {
-    font-family: "Nunito", sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-  }
-  
-  .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .btn {
+}
+
+/* Buttons */
+.btn {
     background-color: #3d81c9;
     color: white;
+    font-family: 'HelveticaNeue-Medium', sans-serif; /* HelveticaNeue-Medium */
     font-weight: 600;
     padding: 15px 32px;
     text-align: center;
@@ -184,25 +175,30 @@
     border: none;
     border-radius: 12px;
     transition: background-color 0.3s ease;
-    box-shadow: 0 3px 3px black;
-  }
-  
-  .btn:hover {
-    background-color: #6d0000;
-    color: #640000;
-  }
-  
-  #noButton {
+    box-shadow: none; /* Remove shadow */
+}
+
+.btn:hover {
+    background-color: #660505;
+    color: #660505;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#yesButton {
+    margin-right: 20px;
+}
+
+#noButton {
     position: relative;
     transform: translateX(0);
     transition: transform 0.3s ease-in-out;
-  }
-  
-  #noButton:hover {
-    transform: translateX(40px); /* Adjust to limit the movement */
-  }
-  
-  #yesButton {
-    margin-right: 20px;
-  }
-  
+}
+
+#noButton:hover {
+    transform: translateX(40px); /* Limit movement */
+}
